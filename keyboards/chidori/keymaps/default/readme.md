@@ -1,1 +1,1 @@
-# The default keymap for chidori
+# My personal keymap for chidori
