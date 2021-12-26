@@ -39,16 +39,16 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Base
    * ,-----------------------------------------.
-   * | VSC  |Screen| Vol  |Enter |Close |Zoom  |
-   * | git  | Shot | Dwn  | pwd  | Win  |Audio |
+   * | VSC  |Screen| Play |Enter |      |Zoom  |
+   * | git  | Shot | Pause| pwd  |      |Audio |
    * |------+------+------+------+------+------|
-   * | VSC  | Mute | Vol  | Lock |Enter |Zoom  |
-   * | frmt |      | Up   |Screen|      |Video |
+   * | VSC  |      | Next | Lock |      |Zoom  |
+   * | frmt |      | Track|Screen|      |Video |
    * `-----------------------------------------'
    */
 	[_BASE] = LAYOUT(
-    LCTL(LSFT(KC_G)), LCMD(LSFT(KC_4)), KC__VOLDOWN, PWD, LCMD(KC_W), LCMD(LSFT(KC_A)),
-    LSFT(LOPT(KC_F)), KC__MUTE, KC__VOLUP, LCMD(LCTL(KC_Q)), KC_ENTER, LCMD(LSFT(KC_V))
+    LCTL(LSFT(KC_G)), LCMD(LSFT(KC_4)), KC_MPLY, PWD,             _______, LCMD(LSFT(KC_A)),
+    LSFT(LOPT(KC_F)), _______,         KC_MNXT, LCMD(LCTL(KC_Q)), _______,   LCMD(LSFT(KC_V))
   ),
 
   /* Lower
@@ -122,7 +122,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case PWD:
       if (record->event.pressed) {
         // Enter password here
-        SEND_STRING("xxxxxx");
+        SEND_STRING("timeline\n");
       }
       break;
   }
